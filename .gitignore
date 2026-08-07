@@ -1,0 +1,6 @@
+# macOS
+.DS_Store
+._*
+
+# Working handoff notes: local paths, outstanding TODOs, not for publication
+NOTES.local.md
