@@ -69,4 +69,38 @@
     img.addEventListener("error", function () { img.remove(); });
     if (img.complete && img.naturalWidth === 0) img.remove();
   });
+
+  // Selected work tabs. Follows the ARIA tabs pattern: one tab in the page
+  // tab order, arrow keys move between them, Home and End jump to the ends.
+  var tablist = document.querySelector('.wtabs[role="tablist"]');
+  if (tablist) {
+    var tabs = Array.prototype.slice.call(tablist.querySelectorAll('[role="tab"]'));
+
+    function select(tab, focus) {
+      tabs.forEach(function (t) {
+        var on = t === tab;
+        t.setAttribute("aria-selected", String(on));
+        t.tabIndex = on ? 0 : -1;
+        var panel = document.getElementById(t.getAttribute("aria-controls"));
+        if (panel) panel.hidden = !on;
+      });
+      if (focus) tab.focus();
+    }
+
+    tablist.addEventListener("click", function (e) {
+      var tab = e.target.closest('[role="tab"]');
+      if (tab) select(tab, false);
+    });
+
+    tablist.addEventListener("keydown", function (e) {
+      var i = tabs.indexOf(document.activeElement);
+      if (i === -1) return;
+      var next = null;
+      if (e.key === "ArrowRight") next = tabs[(i + 1) % tabs.length];
+      else if (e.key === "ArrowLeft") next = tabs[(i - 1 + tabs.length) % tabs.length];
+      else if (e.key === "Home") next = tabs[0];
+      else if (e.key === "End") next = tabs[tabs.length - 1];
+      if (next) { e.preventDefault(); select(next, true); }
+    });
+  }
 })();

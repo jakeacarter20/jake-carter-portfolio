@@ -110,207 +110,233 @@
   <!-- ========================= SELECTED WORK ========================= -->
   <section class="sect" id="work">
     <div class="shell">
-      <div class="sect__head reveal">
-        <h2 class="display d-section">Selected work</h2>
-        <p class="body">
-          Product design, websites and campaign work. Two of these sites I
-          designed and built front to back; the rest span mobile product,
-          brand, print and interactive.
-        </p>
+      <div class="work-head reveal">
+        <h2 class="label work-head__title">Selected work</h2>
+        <div class="wtabs" role="tablist" aria-label="Selected work">
+          <button class="wtab" role="tab" id="wtab-ally" aria-controls="wpanel-ally" aria-selected="true" tabindex="0">ALLY</button>
+          <button class="wtab" role="tab" id="wtab-what-to-do" aria-controls="wpanel-what-to-do" aria-selected="false" tabindex="-1">What To Do</button>
+          <button class="wtab" role="tab" id="wtab-impact" aria-controls="wpanel-impact" aria-selected="false" tabindex="-1">Impact</button>
+          <button class="wtab" role="tab" id="wtab-apple-tv-enhancement" aria-controls="wpanel-apple-tv-enhancement" aria-selected="false" tabindex="-1">Apple TV</button>
+          <button class="wtab" role="tab" id="wtab-smart-trail" aria-controls="wpanel-smart-trail" aria-selected="false" tabindex="-1">Smart Trail</button>
+          <button class="wtab" role="tab" id="wtab-park-city-film" aria-controls="wpanel-park-city-film" aria-selected="false" tabindex="-1">Park City Film</button>
+          <button class="wtab" role="tab" id="wtab-interactive-coffee-book" aria-controls="wpanel-interactive-coffee-book" aria-selected="false" tabindex="-1">Coffee Book</button>
+          <button class="wtab" role="tab" id="wtab-uvu-cet-marketing" aria-controls="wpanel-uvu-cet-marketing" aria-selected="false" tabindex="-1">UVU</button>
+          <button class="wtab" role="tab" id="wtab-christian-center-park-city" aria-controls="wpanel-christian-center-park-city" aria-selected="false" tabindex="-1">CCPC</button>
+          <button class="wtab" role="tab" id="wtab-western-electrical-alliance" aria-controls="wpanel-western-electrical-alliance" aria-selected="false" tabindex="-1">WEA</button>
+        </div>
       </div>
 
-      <div class="grid12 work" data-stagger>
-
-        <a class="project project--s5 reveal" href="work/ally.html">
-          <div class="media" style="--ratio:116%">
-            <div class="media__slot"><span class="mark">ALLY</span></div>
-            <img src="assets/work/ally-home.jpg" alt="ALLY home screen, a colour blocked grid of culture and community topics" loading="lazy">
+      <div class="wstage reveal" style="--d:120ms">
+        <div class="wpanel" role="tabpanel" id="wpanel-ally" aria-labelledby="wtab-ally">
+          <div class="wpanel__media">
+            <img src="assets/work/ally-home.jpg" alt="ALLY home screen, a colour blocked grid of culture and community topics" loading="eager" decoding="async">
           </div>
-          <div class="project__meta">
-            <h3 class="d-sub project__title">ALLY</h3>
-            <span class="project__year">Concept</span>
+          <div class="wpanel__body">
+            <p class="wpanel__meta">Concept · Mobile app</p>
+            <h3 class="display wpanel__title">ALLY</h3>
+            <p class="wpanel__desc">An app for learning about other cultures, races and communities, designed to remove the anxiety that stops people asking in the first place.</p>
+            <ul class="wpanel__points">
+              <li>Colour blocked topic grid, so nothing is ranked above anything else</li>
+              <li>Profiles carry identity as structured fields, filled in as far as the person chooses</li>
+              <li>Every article attributed to a named contributor with their credentials visible</li>
+            </ul>
+            <div class="project__tags">
+              <span class="tag">Product UX/UI</span>
+              <span class="tag">Mobile</span>
+              <span class="tag">Design system</span>
+            </div>
+            <a class="btn btn--ghost wpanel__cta" href="work/ally.html">View case study <span class="arrow" aria-hidden="true">&rarr;</span></a>
           </div>
-          <p class="project__desc">
-            An app for learning about other cultures, races and communities, designed to remove the anxiety that stops people asking in the first place.
-          </p>
-          <div class="project__tags">
-            <span class="tag">Product UX/UI</span>
-            <span class="tag">Mobile</span>
-            <span class="tag">Design system</span>
+        </div>
+        <div class="wpanel" role="tabpanel" id="wpanel-what-to-do" aria-labelledby="wtab-what-to-do" hidden>
+          <div class="wpanel__media">
+            <img src="assets/work/what-to-do-map-food.jpg" alt="The What To Do app showing places to eat plotted on a map of Portland" loading="lazy" decoding="async">
           </div>
-        </a>
-
-        <a class="project project--s7 reveal" href="work/what-to-do.html" style="margin-top:clamp(0rem,5vw,4.5rem)">
-          <div class="media" style="--ratio:90%">
-            <div class="media__slot"><span class="mark">WTD</span></div>
-            <img src="assets/work/what-to-do-map-food.jpg" alt="The What To Do app showing places to eat plotted on a map of Portland" loading="lazy">
+          <div class="wpanel__body">
+            <p class="wpanel__meta">Coursework · 2022</p>
+            <h3 class="display wpanel__title">What To Do</h3>
+            <p class="wpanel__desc">A travel catalog for finding things to do in a city. The brief asked for a product catalog; I turned it into a map with travel points attached.</p>
+            <ul class="wpanel__points">
+              <li>Turned a product catalog brief into map based discovery</li>
+              <li>One accent red, chosen so it sits against heavy photography without fighting it</li>
+              <li>Opens on a search and a discover route, for people with and without a city in mind</li>
+            </ul>
+            <div class="project__tags">
+              <span class="tag">Product UX/UI</span>
+              <span class="tag">Mobile</span>
+              <span class="tag">Brand</span>
+            </div>
+            <a class="btn btn--ghost wpanel__cta" href="work/what-to-do.html">View case study <span class="arrow" aria-hidden="true">&rarr;</span></a>
           </div>
-          <div class="project__meta">
-            <h3 class="d-sub project__title">What To Do</h3>
-            <span class="project__year">2022</span>
+        </div>
+        <div class="wpanel" role="tabpanel" id="wpanel-impact" aria-labelledby="wtab-impact" hidden>
+          <div class="wpanel__media">
+            <img src="assets/work/impact-team.jpg" alt="The Impact app showing a fantasy basketball roster with total points" loading="lazy" decoding="async">
           </div>
-          <p class="project__desc">
-            A travel catalog for finding things to do in a city. The brief asked for a product catalog; I turned it into a map with travel points attached.
-          </p>
-          <div class="project__tags">
-            <span class="tag">Product UX/UI</span>
-            <span class="tag">Mobile</span>
-            <span class="tag">Brand</span>
+          <div class="wpanel__body">
+            <p class="wpanel__meta">Coursework · 2022</p>
+            <h3 class="display wpanel__title">Impact</h3>
+            <p class="wpanel__desc">A brand campaign about players who go unrecognised, built as a fantasy basketball app that puts NBA and WNBA players on one roster.</p>
+            <ul class="wpanel__points">
+              <li>NBA and WNBA players ranked by the same points, on the same roster</li>
+              <li>Scoring named after PIE, a stat the players already have</li>
+              <li>Trade flow reuses the roster profile card, so nothing new has to be learned</li>
+            </ul>
+            <div class="project__tags">
+              <span class="tag">Campaign</span>
+              <span class="tag">Product UX/UI</span>
+              <span class="tag">Identity</span>
+            </div>
+            <a class="btn btn--ghost wpanel__cta" href="work/impact.html">View case study <span class="arrow" aria-hidden="true">&rarr;</span></a>
           </div>
-        </a>
-
-        <a class="project project--s12 reveal" href="work/apple-tv-enhancement.html">
-          <div class="media" style="--ratio:60%">
-            <div class="media__slot"><span class="mark">TV</span></div>
-            <img src="assets/work/tv-journey-pre.jpg" alt="Customer journey map tracking a persona across a month of researching, buying and setting up an Apple TV" loading="lazy">
+        </div>
+        <div class="wpanel" role="tabpanel" id="wpanel-apple-tv-enhancement" aria-labelledby="wtab-apple-tv-enhancement" hidden>
+          <div class="wpanel__media">
+            <img src="assets/work/tv-journey-pre.jpg" alt="Customer journey map tracking a persona across a month of researching and buying a TV" loading="lazy" decoding="async">
           </div>
-          <div class="project__meta">
-            <h3 class="d-sub project__title">Apple TV enhancement</h3>
-            <span class="project__year">2022</span>
+          <div class="wpanel__body">
+            <p class="wpanel__meta">Coursework · 2022 · Team of three</p>
+            <h3 class="display wpanel__title">Apple TV enhancement</h3>
+            <p class="wpanel__desc">A team audit of three home media centres. Feature audits, six personas, empathy maps and two journey maps, ending in a paper prototype that changes one button.</p>
+            <ul class="wpanel__points">
+              <li>Feature and gesture audit across Samsung Frame, Sony and Apple TV</li>
+              <li>Six personas and empathy maps narrowed to one journey, mapped before and after</li>
+              <li>Five research methods to justify moving a single button</li>
+            </ul>
+            <div class="project__tags">
+              <span class="tag">UX research</span>
+              <span class="tag">Journey mapping</span>
+              <span class="tag">Prototyping</span>
+            </div>
+            <a class="btn btn--ghost wpanel__cta" href="work/apple-tv-enhancement.html">View case study <span class="arrow" aria-hidden="true">&rarr;</span></a>
           </div>
-          <p class="project__desc">
-            A team audit of three home media centres. Feature audits, six personas, empathy maps and two journey maps, ending in a paper prototype that changes one button.
-          </p>
-          <div class="project__tags">
-            <span class="tag">UX research</span>
-            <span class="tag">Journey mapping</span>
-            <span class="tag">Prototyping</span>
+        </div>
+        <div class="wpanel" role="tabpanel" id="wpanel-smart-trail" aria-labelledby="wtab-smart-trail" hidden>
+          <div class="wpanel__media">
+            <img src="assets/work/trail-sign-installed.jpg" alt="A Timpanogos Cave Smart Trail sign installed on the trail, mounted low against the rock" loading="lazy" decoding="async">
           </div>
-        </a>
-
-        <a class="project project--s7 reveal" href="work/impact.html">
-          <div class="media" style="--ratio:90%">
-            <div class="media__slot"><span class="mark">IMPACT</span></div>
-            <img src="assets/work/impact-team.jpg" alt="The Impact app showing a fantasy basketball roster with total points" loading="lazy">
+          <div class="wpanel__body">
+            <p class="wpanel__meta">Live · 2022 · National Park Service</p>
+            <h3 class="display wpanel__title">Timpanogos Cave Smart Trail</h3>
+            <p class="wpanel__desc">Five interactive stops up American Fork Canyon for the National Park Service. We designed the experiences and the signage, and installed the wifi they run on.</p>
+            <ul class="wpanel__points">
+              <li>Five stops, each sign small enough to disappear into the mountain</li>
+              <li>Usability tested with twelve respondents across eight prototypes</li>
+              <li>We installed the wifi the whole trail runs on</li>
+            </ul>
+            <div class="project__tags">
+              <span class="tag">UX/UI</span>
+              <span class="tag">Environmental</span>
+              <span class="tag">Web app</span>
+            </div>
+            <a class="btn btn--ghost wpanel__cta" href="work/smart-trail.html">View case study <span class="arrow" aria-hidden="true">&rarr;</span></a>
           </div>
-          <div class="project__meta">
-            <h3 class="d-sub project__title">Impact</h3>
-            <span class="project__year">2022</span>
+        </div>
+        <div class="wpanel" role="tabpanel" id="wpanel-park-city-film" aria-labelledby="wtab-park-city-film" hidden>
+          <div class="wpanel__media">
+            <img src="assets/work/park-city-film-site.jpg" alt="Park City Film website homepage, headlined Creating Community Through Film" loading="lazy" decoding="async">
           </div>
-          <p class="project__desc">
-            A brand campaign about players who go unrecognised, built as a fantasy basketball app that puts NBA and WNBA players on one roster.
-          </p>
-          <div class="project__tags">
-            <span class="tag">Campaign</span>
-            <span class="tag">Product UX/UI</span>
-            <span class="tag">Identity</span>
+          <div class="wpanel__body">
+            <p class="wpanel__meta">Coursework · 2023</p>
+            <h3 class="display wpanel__title">Park City Film</h3>
+            <p class="wpanel__desc">Website for Summit County's only nonprofit art house cinema, organised around showtimes, programmes and the case for membership.</p>
+            <ul class="wpanel__points">
+              <li>Leads with the mission, because showtimes are already one tap away</li>
+              <li>Three routes below the fold: about, showtimes and programmes</li>
+              <li>Nonprofit status stated up front rather than buried in an about page</li>
+            </ul>
+            <div class="project__tags">
+              <span class="tag">Web design</span>
+              <span class="tag">Nonprofit</span>
+            </div>
+            <a class="btn btn--ghost wpanel__cta" href="work/park-city-film.html">View case study <span class="arrow" aria-hidden="true">&rarr;</span></a>
           </div>
-        </a>
-
-        <a class="project project--s5 reveal" href="work/park-city-film.html">
-          <div class="media" style="--ratio:66%">
-            <div class="media__slot"><span class="mark">PCF</span></div>
-            <img src="assets/work/park-city-film-site.jpg" alt="Park City Film website homepage, headlined Creating Community Through Film" loading="lazy">
+        </div>
+        <div class="wpanel" role="tabpanel" id="wpanel-interactive-coffee-book" aria-labelledby="wtab-interactive-coffee-book" hidden>
+          <div class="wpanel__media">
+            <img src="assets/work/coffee-book-leadership.jpg" alt="Leadership spread from the Interactive Coffee Book, showing a rocket launch across the page" loading="lazy" decoding="async">
           </div>
-          <div class="project__meta">
-            <h3 class="d-sub project__title">Park City Film</h3>
-            <span class="project__year">2023</span>
+          <div class="wpanel__body">
+            <p class="wpanel__meta">Coursework · 2022 · Two designers, four writers</p>
+            <h3 class="display wpanel__title">Interactive Coffee Book</h3>
+            <p class="wpanel__desc">A 26 spread printed book about teams in history, with QR codes on the page that open augmented reality experiences.</p>
+            <ul class="wpanel__points">
+              <li>26 spreads on a grid built to absorb uneven contributions from four writers</li>
+              <li>Big images and bold type, so a QR code never has to compete for attention</li>
+              <li>Print that opens into AR, one scan per spread</li>
+            </ul>
+            <div class="project__tags">
+              <span class="tag">Editorial</span>
+              <span class="tag">Print</span>
+              <span class="tag">AR</span>
+            </div>
+            <a class="btn btn--ghost wpanel__cta" href="work/interactive-coffee-book.html">View case study <span class="arrow" aria-hidden="true">&rarr;</span></a>
           </div>
-          <p class="project__desc">
-            Website for Summit County's only nonprofit art house cinema, organised around showtimes, programmes and the case for membership.
-          </p>
-          <div class="project__tags">
-            <span class="tag">Web design</span>
-            <span class="tag">Nonprofit</span>
+        </div>
+        <div class="wpanel" role="tabpanel" id="wpanel-uvu-cet-marketing" aria-labelledby="wtab-uvu-cet-marketing" hidden>
+          <div class="wpanel__media">
+            <img src="assets/work/uvu-find-your-frontier.jpg" alt="Find Your Frontier headline with photography filling the letterforms" loading="lazy" decoding="async">
           </div>
-        </a>
-
-        <a class="project project--s12 reveal" href="work/interactive-coffee-book.html">
-          <div class="media" style="--ratio:39%">
-            <div class="media__slot"><span class="mark">BOOK</span></div>
-            <img src="assets/work/coffee-book-leadership.jpg" alt="Leadership spread from the Interactive Coffee Book, showing an Apollo 11 launch with a QR code in the text column" loading="lazy">
+          <div class="wpanel__body">
+            <p class="wpanel__meta">Delivered · 2022 · Internship</p>
+            <h3 class="display wpanel__title">UVU Engineering &amp; Technology</h3>
+            <p class="wpanel__desc">Recruitment work across all ten departments of UVU's College of Engineering and Technology: a 48 page brochure, tension banner systems and social campaigns.</p>
+            <ul class="wpanel__points">
+              <li>A 48 page brochure covering all ten departments of the college</li>
+              <li>Tension banner system rolled out across five departments</li>
+              <li>One device: headline type filled with the photography of the job itself</li>
+            </ul>
+            <div class="project__tags">
+              <span class="tag">Design system</span>
+              <span class="tag">Editorial</span>
+              <span class="tag">Campaign</span>
+            </div>
+            <a class="btn btn--ghost wpanel__cta" href="work/uvu-cet-marketing.html">View case study <span class="arrow" aria-hidden="true">&rarr;</span></a>
           </div>
-          <div class="project__meta">
-            <h3 class="d-sub project__title">Interactive Coffee Book</h3>
-            <span class="project__year">2022</span>
+        </div>
+        <div class="wpanel" role="tabpanel" id="wpanel-christian-center-park-city" aria-labelledby="wtab-christian-center-park-city" hidden>
+          <div class="wpanel__media">
+            <img src="assets/work/ccpc-newsletter-2023.jpg" alt="Christian Center of Park City 2023 annual newsletter cover" loading="lazy" decoding="async">
           </div>
-          <p class="project__desc">
-            A 26 spread printed book about teams in history, with QR codes on the page that open augmented reality experiences.
-          </p>
-          <div class="project__tags">
-            <span class="tag">Editorial</span>
-            <span class="tag">Print</span>
-            <span class="tag">AR</span>
+          <div class="wpanel__body">
+            <p class="wpanel__meta">Ongoing · 2023 to now</p>
+            <h3 class="display wpanel__title">Christian Center of Park City</h3>
+            <p class="wpanel__desc">Ongoing marketing and design across a multi-department nonprofit: campaign systems, annual reporting, event identity and social content.</p>
+            <ul class="wpanel__points">
+              <li>One annual publication replacing separate departmental handouts</li>
+              <li>Event identity built from the parent brand rather than beside it</li>
+              <li>Marketing, design and grant writing in one remit</li>
+            </ul>
+            <div class="project__tags">
+              <span class="tag">Brand</span>
+              <span class="tag">Campaigns</span>
+              <span class="tag">Print</span>
+            </div>
+            <a class="btn btn--ghost wpanel__cta" href="work/christian-center-park-city.html">View case study <span class="arrow" aria-hidden="true">&rarr;</span></a>
           </div>
-        </a>
-
-        <a class="project project--s5 reveal" href="work/christian-center-park-city.html">
-          <div class="media" style="--ratio:116%">
-            <div class="media__slot"><span class="mark">CCPC</span></div>
-            <img src="assets/work/ccpc-newsletter-2023.jpg" alt="Christian Center of Park City 2023 annual newsletter cover" loading="lazy">
+        </div>
+        <div class="wpanel" role="tabpanel" id="wpanel-western-electrical-alliance" aria-labelledby="wtab-western-electrical-alliance" hidden>
+          <div class="wpanel__media">
+            <img src="assets/work/western-electrical-alliance.jpg" alt="Western Electrical Alliance branch building photographed from the forecourt" loading="lazy" decoding="async">
           </div>
-          <div class="project__meta">
-            <h3 class="d-sub project__title">Christian Center of Park City</h3>
-            <span class="project__year">2023 to now</span>
+          <div class="wpanel__body">
+            <p class="wpanel__meta">Self-directed · 2025</p>
+            <h3 class="display wpanel__title">Western Electrical Alliance</h3>
+            <p class="wpanel__desc">A self-directed build: a six-section marketing site for a Northern Utah electrical contractor, designed and coded front to back to show what I can ship.</p>
+            <ul class="wpanel__points">
+              <li>Six service lines on one site without turning the homepage into a directory</li>
+              <li>Hand-built in HTML, CSS and JavaScript, responsive and keyboard navigable</li>
+              <li>Designed and coded end to end by one person</li>
+            </ul>
+            <div class="project__tags">
+              <span class="tag">Web design</span>
+              <span class="tag">Front-end</span>
+              <span class="tag">Brand</span>
+            </div>
+            <a class="btn btn--ghost wpanel__cta" href="work/western-electrical-alliance.html">View case study <span class="arrow" aria-hidden="true">&rarr;</span></a>
           </div>
-          <p class="project__desc">
-            Ongoing marketing and design across a multi-department nonprofit: campaign systems, annual reporting, event identity and social content.
-          </p>
-          <div class="project__tags">
-            <span class="tag">Brand</span>
-            <span class="tag">Campaigns</span>
-            <span class="tag">Print</span>
-          </div>
-        </a>
-
-        <a class="project project--s7 reveal" href="work/smart-trail.html">
-          <div class="media" style="--ratio:96%">
-            <div class="media__slot"><span class="mark">TRAIL</span></div>
-            <img src="assets/work/trail-sign-installed.jpg" alt="A Timpanogos Cave Smart Trail sign installed on the trail, mounted above a numbered marker post" loading="lazy">
-          </div>
-          <div class="project__meta">
-            <h3 class="d-sub project__title">Timpanogos Cave Smart Trail</h3>
-            <span class="project__year">2022</span>
-          </div>
-          <p class="project__desc">
-            Five interactive stops up American Fork Canyon for the National Park Service. We designed the experiences and the signage, and installed the wifi they run on.
-          </p>
-          <div class="project__tags">
-            <span class="tag">UX/UI</span>
-            <span class="tag">Environmental</span>
-            <span class="tag">Web app</span>
-          </div>
-        </a>
-
-        <a class="project project--s6 reveal" href="work/uvu-cet-marketing.html">
-          <div class="media" style="--ratio:54%">
-            <div class="media__slot"><span class="mark">UVU</span></div>
-            <img src="assets/work/uvu-find-your-frontier.jpg" alt="Find Your Frontier headline with photography filling the letterforms" loading="lazy">
-          </div>
-          <div class="project__meta">
-            <h3 class="d-sub project__title">UVU Engineering &amp; Technology</h3>
-            <span class="project__year">2022</span>
-          </div>
-          <p class="project__desc">
-            Recruitment work across all ten departments of UVU's College of Engineering and Technology: a 48 page brochure, tension banner systems and social campaigns.
-          </p>
-          <div class="project__tags">
-            <span class="tag">Design system</span>
-            <span class="tag">Editorial</span>
-            <span class="tag">Campaign</span>
-          </div>
-        </a>
-
-
-        <a class="project project--s6 reveal" href="work/western-electrical-alliance.html">
-          <div class="media" style="--ratio:54%">
-            <div class="media__slot"><span class="mark">WEA</span></div>
-            <img src="assets/work/western-electrical-alliance.jpg" alt="Western Electrical Alliance branch building photographed from the forecourt" loading="lazy">
-          </div>
-          <div class="project__meta">
-            <h3 class="d-sub project__title">Western Electrical Alliance</h3>
-            <span class="project__year">2025</span>
-          </div>
-          <p class="project__desc">
-            A self-directed build: a six-section marketing site for a Northern Utah electrical contractor, designed and coded front to back to show what I can ship.
-          </p>
-          <div class="project__tags">
-            <span class="tag">Web design</span>
-            <span class="tag">Front-end</span>
-            <span class="tag">Brand</span>
-          </div>
-        </a>
-
+        </div>
+      </div>
     </div>
   </section>
 

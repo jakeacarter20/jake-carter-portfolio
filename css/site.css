@@ -447,38 +447,134 @@ section { position: relative; }
 .sect__head .body { margin-top: 1.25rem; }
 
 /* ============================================================
-   WORK GRID - asymmetric spans, varied ratios. Not a zigzag.
+   SELECTED WORK  - tabbed showcase, one project at a time
    ============================================================ */
-.work { row-gap: clamp(3rem, 7vh, 6rem); }
+.work-head__title { margin: 0; }
 
-/* Column spans are set per card so the grid stays asymmetric and each
-   image gets a ratio close to its own aspect, rather than being cropped
-   to fit a uniform card. */
-.project { grid-column: span 6; display: block; }
-.project--s5 { grid-column: span 5; }
-.project--s6 { grid-column: span 6; }
-.project--s7 { grid-column: span 7; }
-.project--s12 { grid-column: span 12; }
-
-.project:hover .media > img { transform: scale(1.045); }
-
-.project__meta {
+.work-head {
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-top: 1.25rem;
-  padding-bottom: 0.9rem;
+  gap: 1rem clamp(1.5rem, 4vw, 3.5rem);
+  padding-bottom: clamp(1.25rem, 3vh, 2rem);
   border-bottom: 1px solid var(--line);
-  transition: border-color 0.45s var(--ease);
+  margin-bottom: clamp(1.5rem, 4vh, 3rem);
 }
-.project:hover .project__meta { border-bottom-color: var(--accent); }
 
-.project__title { font-size: clamp(1.25rem, 2vw, 1.75rem); }
-.project__year { font-family: var(--font-mono); font-size: 0.75rem; color: var(--fg-3); }
-.project__desc { margin-top: 0.9rem; color: var(--fg-2); font-size: 0.9375rem; max-width: 48ch; }
+/* Ten tabs is more than the reference carries, so the row scrolls rather
+   than wrapping to a second line and unbalancing the header. */
+.wtabs {
+  display: flex;
+  gap: clamp(0.75rem, 2vw, 1.75rem);
+  overflow-x: auto;
+  scrollbar-width: none;
+  margin-left: auto;
+  max-width: 100%;
+}
+.wtabs::-webkit-scrollbar { display: none; }
 
-.project__tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
+/* The strip scrolls once the tabs outrun the row, which they do on narrow
+   screens. Fade the trailing edge so there is a visible cue that it does. */
+.wtabs {
+  -webkit-mask-image: linear-gradient(to right, #000 88%, transparent 100%);
+  mask-image: linear-gradient(to right, #000 88%, transparent 100%);
+}
+@media (min-width: 861px) {
+  .wtabs { -webkit-mask-image: none; mask-image: none; }
+}
+
+.wtab {
+  flex: none;
+  background: none;
+  border: 0;
+  padding: 0.35rem 0;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  color: var(--fg-3);
+  cursor: pointer;
+  position: relative;
+  white-space: nowrap;
+  transition: color 0.3s var(--ease);
+}
+.wtab::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s var(--ease);
+}
+.wtab:hover,
+.wtab[aria-selected="true"] { color: var(--fg); }
+.wtab[aria-selected="true"]::after { transform: scaleX(1); }
+
+.wpanel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: center;
+}
+.wpanel[hidden] { display: none; }
+
+.wpanel__media {
+  background: var(--bg-2);
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+.wpanel__media img { width: 100%; height: 100%; object-fit: cover; }
+
+.wpanel__body { display: flex; flex-direction: column; align-items: flex-start; gap: 1.1rem; }
+
+.wpanel__meta {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+  margin: 0;
+}
+
+.wpanel__title {
+  font-size: clamp(1.9rem, 3.6vw, 3rem);
+  font-variation-settings: "wdth" 104;
+  margin: 0;
+}
+
+.wpanel__desc { color: var(--fg-2); margin: 0; max-width: 46ch; }
+
+.wpanel__points {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  max-width: 46ch;
+}
+.wpanel__points li {
+  position: relative;
+  padding-left: 1.1rem;
+  color: var(--fg-2);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+.wpanel__points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 5px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.wpanel__cta { margin-top: 0.35rem; }
+
+.project__tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 .tag {
   border: 1px solid var(--line);
   border-radius: 999px;
@@ -490,12 +586,11 @@ section { position: relative; }
   color: var(--fg-3);
 }
 
-@media (max-width: 900px) {
-  .project,
-  .project--s5,
-  .project--s6,
-  .project--s7,
-  .project--s12 { grid-column: span 12; margin-top: 0 !important; }
+@media (max-width: 860px) {
+  .work-head { flex-direction: column; align-items: stretch; gap: 1rem; }
+  .wtabs { margin-left: 0; }
+  .wpanel { grid-template-columns: 1fr; }
+  .wpanel__media { aspect-ratio: 16 / 10; }
 }
 
 /* ============================================================
