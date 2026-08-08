@@ -736,15 +736,19 @@ section { position: relative; }
   align-items: start;
 }
 
+/* --cs carries an explicit start column so a row that does not fill all
+   twelve is centred rather than left aligned. It has to sit inside the
+   shorthand: `grid-column: span 6` sets the START, so overriding
+   grid-column-start separately would wipe the span and collapse the cell. */
 .cs-cell {
-  grid-column: span 6;
+  grid-column: var(--cs, auto) / span 6;
   margin: 0;
   max-width: var(--iw, none);
 }
-.cs-cell--wide { grid-column: span 12; }
-.cs-cell--half { grid-column: span 6; }
-.cs-cell--tall { grid-column: span 4; }
-.cs-cell--quarter { grid-column: span 3; }
+.cs-cell--wide { grid-column: var(--cs, auto) / span 12; }
+.cs-cell--half { grid-column: var(--cs, auto) / span 6; }
+.cs-cell--tall { grid-column: var(--cs, auto) / span 4; }
+.cs-cell--quarter { grid-column: var(--cs, auto) / span 3; }
 
 .cs-cell .media {
   background: var(--bg-2);
