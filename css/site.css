@@ -357,56 +357,9 @@ section { position: relative; }
 
 .hero__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
 
-/* --- Full-bleed portrait plate -------------------------------------------
-   The portrait sits behind the copy rather than beside it. The source photo
-   is shot on a LIGHT backdrop, the inverse of the dark reference, so it is
-   sunk into the page with brightness rather than lifted with contrast, then
-   dissolved at every edge with a mask so it never meets a hard boundary. */
-.hero--plate { position: relative; }
-.hero--plate .shell { position: relative; z-index: 2; }
-.hero--plate .hero__copy { grid-column: 1 / 9; }
-
-.hero__plate {
-  position: absolute;
-  inset: 0 0 0 auto;
-  width: min(68%, 980px);
-  margin: 0;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.hero__plate img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 50% 22%;
-  filter: grayscale(1) contrast(1.06) brightness(0.46);
-  opacity: 0.75;
-  /* Two masks multiplied: a soft ellipse around the head, and a hard fade on
-     the left so the plate never intrudes on the headline's counters. */
-  -webkit-mask-image:
-    radial-gradient(115% 88% at 62% 34%, #000 26%, rgba(0,0,0,0.55) 55%, transparent 78%),
-    linear-gradient(to right, transparent 0%, #000 42%);
-  mask-image:
-    radial-gradient(115% 88% at 62% 34%, #000 26%, rgba(0,0,0,0.55) 55%, transparent 78%),
-    linear-gradient(to right, transparent 0%, #000 42%);
-  -webkit-mask-composite: source-in;
-  mask-composite: intersect;
-}
-
 @media (max-width: 1024px) {
-  .hero__copy,
-  .hero--plate .hero__copy { grid-column: 1 / 13; }
+  .hero__copy { grid-column: 1 / 13; }
   .hero__figure { grid-column: 1 / 13; margin-top: 2.5rem; max-width: 340px; }
-  /* On narrow screens the plate moves behind the whole column and drops back
-     further, so the headline never has to fight it for contrast. */
-  .hero__plate { width: 100%; }
-  .hero__plate img {
-    object-position: 50% 16%;
-    opacity: 0.5;
-    -webkit-mask-image: radial-gradient(120% 62% at 60% 22%, #000 18%, transparent 72%);
-    mask-image: radial-gradient(120% 62% at 60% 22%, #000 18%, transparent 72%);
-  }
 }
 
 /* ============================================================
