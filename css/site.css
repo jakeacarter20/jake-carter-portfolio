@@ -754,8 +754,14 @@ section { position: relative; }
   width: 100%;
   height: 100%;
   object-fit: cover;
+  /* Cells are capped at 5:4, so a long phone screen is trimmed rather than
+     running to 1200px and swamping the page. Anchoring to the top keeps the
+     header and the first rows, which is the part worth reading. */
+  object-position: center top;
   transform: none;
 }
+/* A few images carry their subject in the middle, so they anchor centre. */
+.cs-cell--center .media > img { object-position: center center; }
 
 .cs-caption { margin: 0.9rem 0 0; font-size: 0.875rem; color: var(--fg-3); }
 
