@@ -56,7 +56,10 @@
 <main id="main">
 
   <!-- ========================= HERO ========================= -->
-  <section class="hero">
+  <section class="hero hero--plate">
+    <figure class="hero__plate" aria-hidden="true">
+      <img src="assets/img/portrait-hero.jpg" alt="" loading="eager" fetchpriority="high" decoding="async">
+    </figure>
     <div class="shell" style="width:100%">
       <div class="grid12 hero__grid">
         <div class="hero__copy">
@@ -74,14 +77,6 @@
           </div>
         </div>
 
-        <figure class="hero__figure reveal" style="--d:620ms;margin:0">
-          <!-- TODO Jake: drop a portrait at assets/img/portrait.jpg, 1000x1250 or larger.
-               If the file is absent the designed panel below shows instead. -->
-          <div class="media" style="--ratio:100%">
-            <div class="media__slot"><span class="mark">JC</span></div>
-            <img src="assets/img/portrait.jpg" alt="Jake Carter" loading="eager">
-          </div>
-        </figure>
       </div>
     </div>
   </section>
