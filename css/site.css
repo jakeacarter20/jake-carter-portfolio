@@ -447,60 +447,51 @@ section { position: relative; }
 .sect__head .body { margin-top: 1.25rem; }
 
 /* ============================================================
-   SELECTED WORK  - tabbed showcase, one project at a time
+   SELECTED WORK  - every project on the page, with a floating
+   jump strip so a reader can skip straight to one
    ============================================================ */
-.work-head__title { margin: 0; }
+.work-head__title { margin: 0 0 clamp(1rem, 2.5vh, 1.5rem); }
 
-.work-head {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 1rem clamp(1.5rem, 4vw, 3.5rem);
-  padding-bottom: clamp(1.25rem, 3vh, 2rem);
-  border-bottom: 1px solid var(--line);
-  margin-bottom: clamp(1.5rem, 4vh, 3rem);
+/* Sticks under the fixed 68px header. Sits below --z-nav so the header
+   drawer still covers it when the mobile menu is open. */
+.wnav-bar {
+  position: sticky;
+  top: 68px;
+  z-index: 30;
+  background: rgba(15, 14, 13, 0.86);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-block: 1px solid var(--line);
+  padding-block: 0.85rem;
+  margin-bottom: clamp(2.5rem, 6vh, 4.5rem);
 }
 
-/* Ten tabs is more than the reference carries, so the row scrolls rather
-   than wrapping to a second line and unbalancing the header. */
-.wtabs {
+.wnav {
   display: flex;
   gap: clamp(0.75rem, 2vw, 1.75rem);
   overflow-x: auto;
   scrollbar-width: none;
-  margin-left: auto;
-  max-width: 100%;
+  /* The strip scrolls once the links outrun the row. Fade the trailing
+     edge so there is a visible cue that more sits past it. */
+  -webkit-mask-image: linear-gradient(to right, #000 90%, transparent 100%);
+  mask-image: linear-gradient(to right, #000 90%, transparent 100%);
 }
-.wtabs::-webkit-scrollbar { display: none; }
+.wnav::-webkit-scrollbar { display: none; }
 
-/* The strip scrolls once the tabs outrun the row, which they do on narrow
-   screens. Fade the trailing edge so there is a visible cue that it does. */
-.wtabs {
-  -webkit-mask-image: linear-gradient(to right, #000 88%, transparent 100%);
-  mask-image: linear-gradient(to right, #000 88%, transparent 100%);
-}
-@media (min-width: 861px) {
-  .wtabs { -webkit-mask-image: none; mask-image: none; }
-}
-
-.wtab {
+.wnav__link {
   flex: none;
-  background: none;
-  border: 0;
-  padding: 0.35rem 0;
-  font-family: var(--font-body);
+  position: relative;
+  padding: 0.25rem 0;
   font-size: 0.9375rem;
   color: var(--fg-3);
-  cursor: pointer;
-  position: relative;
   white-space: nowrap;
   transition: color 0.3s var(--ease);
 }
-.wtab::after {
+.wnav__link::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -1px;
+  bottom: -0.3rem;
   width: 100%;
   height: 1px;
   background: var(--accent);
@@ -508,24 +499,33 @@ section { position: relative; }
   transform-origin: left;
   transition: transform 0.35s var(--ease);
 }
-.wtab:hover,
-.wtab[aria-selected="true"] { color: var(--fg); }
-.wtab[aria-selected="true"]::after { transform: scaleX(1); }
+.wnav__link:hover { color: var(--fg); }
+.wnav__link[aria-current="true"] { color: var(--fg); }
+.wnav__link[aria-current="true"]::after { transform: scaleX(1); }
+
+.wstack { display: flex; flex-direction: column; gap: clamp(4rem, 11vh, 8rem); }
 
 .wpanel {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: clamp(1.5rem, 4vw, 3.5rem);
   align-items: center;
+  /* Clears the fixed header plus the sticky strip when jumped to. */
+  scroll-margin-top: 140px;
 }
-.wpanel[hidden] { display: none; }
 
 .wpanel__media {
   background: var(--bg-2);
   aspect-ratio: 4 / 3;
   overflow: hidden;
 }
-.wpanel__media img { width: 100%; height: 100%; object-fit: cover; }
+.wpanel__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.9s var(--ease);
+}
+.wpanel:hover .wpanel__media img { transform: scale(1.03); }
 
 .wpanel__body { display: flex; flex-direction: column; align-items: flex-start; gap: 1.1rem; }
 
@@ -587,9 +587,7 @@ section { position: relative; }
 }
 
 @media (max-width: 860px) {
-  .work-head { flex-direction: column; align-items: stretch; gap: 1rem; }
-  .wtabs { margin-left: 0; }
-  .wpanel { grid-template-columns: 1fr; }
+  .wpanel { grid-template-columns: 1fr; scroll-margin-top: 128px; }
   .wpanel__media { aspect-ratio: 16 / 10; }
 }
 

@@ -110,24 +110,29 @@
   <!-- ========================= SELECTED WORK ========================= -->
   <section class="sect" id="work">
     <div class="shell">
-      <div class="work-head reveal">
-        <h2 class="label work-head__title">Selected work</h2>
-        <div class="wtabs" role="tablist" aria-label="Selected work">
-          <button class="wtab" role="tab" id="wtab-ally" aria-controls="wpanel-ally" aria-selected="true" tabindex="0">ALLY</button>
-          <button class="wtab" role="tab" id="wtab-what-to-do" aria-controls="wpanel-what-to-do" aria-selected="false" tabindex="-1">What To Do</button>
-          <button class="wtab" role="tab" id="wtab-impact" aria-controls="wpanel-impact" aria-selected="false" tabindex="-1">Impact</button>
-          <button class="wtab" role="tab" id="wtab-apple-tv-enhancement" aria-controls="wpanel-apple-tv-enhancement" aria-selected="false" tabindex="-1">Apple TV</button>
-          <button class="wtab" role="tab" id="wtab-smart-trail" aria-controls="wpanel-smart-trail" aria-selected="false" tabindex="-1">Smart Trail</button>
-          <button class="wtab" role="tab" id="wtab-park-city-film" aria-controls="wpanel-park-city-film" aria-selected="false" tabindex="-1">Park City Film</button>
-          <button class="wtab" role="tab" id="wtab-interactive-coffee-book" aria-controls="wpanel-interactive-coffee-book" aria-selected="false" tabindex="-1">Coffee Book</button>
-          <button class="wtab" role="tab" id="wtab-uvu-cet-marketing" aria-controls="wpanel-uvu-cet-marketing" aria-selected="false" tabindex="-1">UVU</button>
-          <button class="wtab" role="tab" id="wtab-christian-center-park-city" aria-controls="wpanel-christian-center-park-city" aria-selected="false" tabindex="-1">CCPC</button>
-          <button class="wtab" role="tab" id="wtab-western-electrical-alliance" aria-controls="wpanel-western-electrical-alliance" aria-selected="false" tabindex="-1">WEA</button>
-        </div>
-      </div>
+      <h2 class="label work-head__title reveal">Selected work</h2>
+    </div>
 
-      <div class="wstage reveal" style="--d:120ms">
-        <div class="wpanel" role="tabpanel" id="wpanel-ally" aria-labelledby="wtab-ally">
+    <div class="wnav-bar">
+      <div class="shell">
+        <nav class="wnav" aria-label="Jump to a project">
+            <a class="wnav__link" href="#p-ally" aria-current="true">ALLY</a>
+            <a class="wnav__link" href="#p-what-to-do">What To Do</a>
+            <a class="wnav__link" href="#p-impact">Impact</a>
+            <a class="wnav__link" href="#p-apple-tv-enhancement">Apple TV</a>
+            <a class="wnav__link" href="#p-smart-trail">Smart Trail</a>
+            <a class="wnav__link" href="#p-park-city-film">Park City Film</a>
+            <a class="wnav__link" href="#p-interactive-coffee-book">Coffee Book</a>
+            <a class="wnav__link" href="#p-uvu-cet-marketing">UVU</a>
+            <a class="wnav__link" href="#p-christian-center-park-city">CCPC</a>
+            <a class="wnav__link" href="#p-western-electrical-alliance">WEA</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="shell">
+      <div class="wstack">
+        <article class="wpanel reveal" id="p-ally">
           <div class="wpanel__media">
             <img src="assets/work/ally-home.jpg" alt="ALLY home screen, a colour blocked grid of culture and community topics" loading="eager" decoding="async">
           </div>
@@ -147,8 +152,8 @@
             </div>
             <a class="btn btn--ghost wpanel__cta" href="work/ally.html">View case study <span class="arrow" aria-hidden="true">&rarr;</span></a>
           </div>
-        </div>
-        <div class="wpanel" role="tabpanel" id="wpanel-what-to-do" aria-labelledby="wtab-what-to-do" hidden>
+        </article>
+        <article class="wpanel reveal" id="p-what-to-do">
           <div class="wpanel__media">
             <img src="assets/work/what-to-do-map-food.jpg" alt="The What To Do app showing places to eat plotted on a map of Portland" loading="lazy" decoding="async">
           </div>
@@ -168,8 +173,8 @@
             </div>
             <a class="btn btn--ghost wpanel__cta" href="work/what-to-do.html">View case study <span class="arrow" aria-hidden="true">&rarr;</span></a>
           </div>
-        </div>
-        <div class="wpanel" role="tabpanel" id="wpanel-impact" aria-labelledby="wtab-impact" hidden>
+        </article>
+        <article class="wpanel reveal" id="p-impact">
           <div class="wpanel__media">
             <img src="assets/work/impact-team.jpg" alt="The Impact app showing a fantasy basketball roster with total points" loading="lazy" decoding="async">
           </div>
@@ -189,8 +194,8 @@
             </div>
             <a class="btn btn--ghost wpanel__cta" href="work/impact.html">View case study <span class="arrow" aria-hidden="true">&rarr;</span></a>
           </div>
-        </div>
-        <div class="wpanel" role="tabpanel" id="wpanel-apple-tv-enhancement" aria-labelledby="wtab-apple-tv-enhancement" hidden>
+        </article>
+        <article class="wpanel reveal" id="p-apple-tv-enhancement">
           <div class="wpanel__media">
             <img src="assets/work/tv-journey-pre.jpg" alt="Customer journey map tracking a persona across a month of researching and buying a TV" loading="lazy" decoding="async">
           </div>
@@ -210,8 +215,8 @@
             </div>
             <a class="btn btn--ghost wpanel__cta" href="work/apple-tv-enhancement.html">View case study <span class="arrow" aria-hidden="true">&rarr;</span></a>
           </div>
-        </div>
-        <div class="wpanel" role="tabpanel" id="wpanel-smart-trail" aria-labelledby="wtab-smart-trail" hidden>
+        </article>
+        <article class="wpanel reveal" id="p-smart-trail">
           <div class="wpanel__media">
             <img src="assets/work/trail-sign-installed.jpg" alt="A Timpanogos Cave Smart Trail sign installed on the trail, mounted low against the rock" loading="lazy" decoding="async">
           </div>
@@ -231,8 +236,8 @@
             </div>
             <a class="btn btn--ghost wpanel__cta" href="work/smart-trail.html">View case study <span class="arrow" aria-hidden="true">&rarr;</span></a>
           </div>
-        </div>
-        <div class="wpanel" role="tabpanel" id="wpanel-park-city-film" aria-labelledby="wtab-park-city-film" hidden>
+        </article>
+        <article class="wpanel reveal" id="p-park-city-film">
           <div class="wpanel__media">
             <img src="assets/work/park-city-film-site.jpg" alt="Park City Film website homepage, headlined Creating Community Through Film" loading="lazy" decoding="async">
           </div>
@@ -251,8 +256,8 @@
             </div>
             <a class="btn btn--ghost wpanel__cta" href="work/park-city-film.html">View case study <span class="arrow" aria-hidden="true">&rarr;</span></a>
           </div>
-        </div>
-        <div class="wpanel" role="tabpanel" id="wpanel-interactive-coffee-book" aria-labelledby="wtab-interactive-coffee-book" hidden>
+        </article>
+        <article class="wpanel reveal" id="p-interactive-coffee-book">
           <div class="wpanel__media">
             <img src="assets/work/coffee-book-leadership.jpg" alt="Leadership spread from the Interactive Coffee Book, showing a rocket launch across the page" loading="lazy" decoding="async">
           </div>
@@ -272,8 +277,8 @@
             </div>
             <a class="btn btn--ghost wpanel__cta" href="work/interactive-coffee-book.html">View case study <span class="arrow" aria-hidden="true">&rarr;</span></a>
           </div>
-        </div>
-        <div class="wpanel" role="tabpanel" id="wpanel-uvu-cet-marketing" aria-labelledby="wtab-uvu-cet-marketing" hidden>
+        </article>
+        <article class="wpanel reveal" id="p-uvu-cet-marketing">
           <div class="wpanel__media">
             <img src="assets/work/uvu-find-your-frontier.jpg" alt="Find Your Frontier headline with photography filling the letterforms" loading="lazy" decoding="async">
           </div>
@@ -293,8 +298,8 @@
             </div>
             <a class="btn btn--ghost wpanel__cta" href="work/uvu-cet-marketing.html">View case study <span class="arrow" aria-hidden="true">&rarr;</span></a>
           </div>
-        </div>
-        <div class="wpanel" role="tabpanel" id="wpanel-christian-center-park-city" aria-labelledby="wtab-christian-center-park-city" hidden>
+        </article>
+        <article class="wpanel reveal" id="p-christian-center-park-city">
           <div class="wpanel__media">
             <img src="assets/work/ccpc-newsletter-2023.jpg" alt="Christian Center of Park City 2023 annual newsletter cover" loading="lazy" decoding="async">
           </div>
@@ -314,8 +319,8 @@
             </div>
             <a class="btn btn--ghost wpanel__cta" href="work/christian-center-park-city.html">View case study <span class="arrow" aria-hidden="true">&rarr;</span></a>
           </div>
-        </div>
-        <div class="wpanel" role="tabpanel" id="wpanel-western-electrical-alliance" aria-labelledby="wtab-western-electrical-alliance" hidden>
+        </article>
+        <article class="wpanel reveal" id="p-western-electrical-alliance">
           <div class="wpanel__media">
             <img src="assets/work/western-electrical-alliance.jpg" alt="Western Electrical Alliance branch building photographed from the forecourt" loading="lazy" decoding="async">
           </div>
@@ -335,7 +340,7 @@
             </div>
             <a class="btn btn--ghost wpanel__cta" href="work/western-electrical-alliance.html">View case study <span class="arrow" aria-hidden="true">&rarr;</span></a>
           </div>
-        </div>
+        </article>
       </div>
     </div>
   </section>

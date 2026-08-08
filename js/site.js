@@ -70,37 +70,51 @@
     if (img.complete && img.naturalWidth === 0) img.remove();
   });
 
-  // Selected work tabs. Follows the ARIA tabs pattern: one tab in the page
-  // tab order, arrow keys move between them, Home and End jump to the ends.
-  var tablist = document.querySelector('.wtabs[role="tablist"]');
-  if (tablist) {
-    var tabs = Array.prototype.slice.call(tablist.querySelectorAll('[role="tab"]'));
+  // Selected work: every project is on the page, the strip just jumps to one.
+  // A 1px detection line is placed just under the sticky strip via rootMargin,
+  // so exactly one project crosses it at a time. Ratio-based spies pick the
+  // panel that is leaving, because a tall panel entering scores a low ratio.
+  var wnav = document.querySelector(".wnav");
+  if (wnav && "IntersectionObserver" in window) {
+    var LINE = 150;
+    var links = Array.prototype.slice.call(wnav.querySelectorAll(".wnav__link"));
+    var panels = Array.prototype.slice.call(document.querySelectorAll(".wpanel"));
+    var byId = {};
+    links.forEach(function (a) { byId[a.getAttribute("href").slice(1)] = a; });
+    var observer = null;
 
-    function select(tab, focus) {
-      tabs.forEach(function (t) {
-        var on = t === tab;
-        t.setAttribute("aria-selected", String(on));
-        t.tabIndex = on ? 0 : -1;
-        var panel = document.getElementById(t.getAttribute("aria-controls"));
-        if (panel) panel.hidden = !on;
+    function setCurrent(a) {
+      if (!a || a.getAttribute("aria-current") === "true") return;
+      links.forEach(function (l) {
+        if (l === a) l.setAttribute("aria-current", "true");
+        else l.removeAttribute("aria-current");
       });
-      if (focus) tab.focus();
+      if (wnav.scrollWidth > wnav.clientWidth) {
+        var l = a.offsetLeft, r = l + a.offsetWidth;
+        if (l < wnav.scrollLeft) wnav.scrollTo({ left: l - 24, behavior: "smooth" });
+        else if (r > wnav.scrollLeft + wnav.clientWidth)
+          wnav.scrollTo({ left: r - wnav.clientWidth + 24, behavior: "smooth" });
+      }
     }
 
-    tablist.addEventListener("click", function (e) {
-      var tab = e.target.closest('[role="tab"]');
-      if (tab) select(tab, false);
-    });
+    function build() {
+      if (observer) observer.disconnect();
+      var bottom = Math.max(0, window.innerHeight - LINE - 1);
+      observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) setCurrent(byId[e.target.id]);
+        });
+      }, { rootMargin: "-" + LINE + "px 0px -" + bottom + "px 0px", threshold: 0 });
+      panels.forEach(function (p) { observer.observe(p); });
+    }
 
-    tablist.addEventListener("keydown", function (e) {
-      var i = tabs.indexOf(document.activeElement);
-      if (i === -1) return;
-      var next = null;
-      if (e.key === "ArrowRight") next = tabs[(i + 1) % tabs.length];
-      else if (e.key === "ArrowLeft") next = tabs[(i - 1 + tabs.length) % tabs.length];
-      else if (e.key === "Home") next = tabs[0];
-      else if (e.key === "End") next = tabs[tabs.length - 1];
-      if (next) { e.preventDefault(); select(next, true); }
+    build();
+
+    // The detection line depends on viewport height, so rebuild when it changes.
+    var t;
+    window.addEventListener("resize", function () {
+      clearTimeout(t);
+      t = setTimeout(build, 150);
     });
   }
 })();
