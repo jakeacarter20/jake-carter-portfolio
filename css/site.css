@@ -197,14 +197,13 @@ section { position: relative; }
 .btn .arrow { transition: transform 0.35s var(--ease); }
 .btn:hover .arrow { transform: translateX(3px); }
 
-/* Inline text link. Weight plus a resting underline carry the affordance, so
+/* Inline text link. Colour plus a resting underline carry the affordance, so
    the link is identifiable without hovering; the accent line then draws over
-   the resting rule on hover. */
+   the resting rule on hover. Weight stays at body regular by choice. */
 .tlink {
   position: relative;
   display: inline-block;
   padding-bottom: 2px;
-  font-weight: 500;
   color: var(--fg);
 }
 .tlink::before {
