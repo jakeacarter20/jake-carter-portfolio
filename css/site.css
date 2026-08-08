@@ -744,6 +744,7 @@ section { position: relative; }
 .cs-cell--wide { grid-column: span 12; }
 .cs-cell--half { grid-column: span 6; }
 .cs-cell--tall { grid-column: span 4; }
+.cs-cell--quarter { grid-column: span 3; }
 
 .cs-cell .media {
   background: var(--bg-2);
@@ -753,15 +754,10 @@ section { position: relative; }
 .cs-cell .media > img {
   width: 100%;
   height: 100%;
+  /* Each cell matches its image's real aspect, so cover crops nothing. */
   object-fit: cover;
-  /* Cells are capped at 5:4, so a long phone screen is trimmed rather than
-     running to 1200px and swamping the page. Anchoring to the top keeps the
-     header and the first rows, which is the part worth reading. */
-  object-position: center top;
   transform: none;
 }
-/* A few images carry their subject in the middle, so they anchor centre. */
-.cs-cell--center .media > img { object-position: center center; }
 
 .cs-caption { margin: 0.9rem 0 0; font-size: 0.875rem; color: var(--fg-3); }
 
@@ -776,6 +772,7 @@ section { position: relative; }
   .cs-cell--wide { grid-column: span 12; }
   .cs-cell--half { grid-column: span 12; }
   .cs-cell--tall { grid-column: span 6; }
+  .cs-cell--quarter { grid-column: span 6; }
   /* The width cap is a desktop guard; on a phone the column is already
      narrower than any source image. */
   .cs-cell { max-width: none; }
