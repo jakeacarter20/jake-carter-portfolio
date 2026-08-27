@@ -763,6 +763,40 @@ section { position: relative; }
   transform: none;
 }
 
+/* A figure that opens its source document. The badge is the affordance:
+   without it a clickable image looks exactly like a static one. */
+.cs-cell__link {
+  display: block;
+  position: relative;
+  cursor: pointer;
+}
+.cs-cell__link::after {
+  content: "PDF";
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(15, 14, 13, 0.78);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid var(--line-strong);
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.14em;
+  color: var(--fg);
+  opacity: 0.85;
+  transition: opacity 0.35s var(--ease), background 0.35s var(--ease);
+}
+.cs-cell__link:hover::after {
+  opacity: 1;
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+}
+.cs-cell__link:hover .media > img { transform: scale(1.025); }
+.cs-cell__link:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
 .cs-caption { margin: 0.9rem 0 0; font-size: 0.875rem; color: var(--fg-3); }
 
 .cs-next { border-top: 1px solid var(--line); padding-block: clamp(3rem, 8vh, 5rem); }
