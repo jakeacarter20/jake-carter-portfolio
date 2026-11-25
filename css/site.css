@@ -516,6 +516,10 @@ section { position: relative; }
   scroll-margin-top: 140px;
 }
 
+/* The panel image links to the same case study as the button below it, so it
+   needs to be a block to stay the grid item the layout expects. */
+.wpanel__link { display: block; }
+
 .wpanel__media {
   background: var(--bg-2);
   aspect-ratio: 4 / 3;
